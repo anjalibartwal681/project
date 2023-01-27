@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Document</title>
+<style>
+    body{margin:0;
+    padding:0;}
+    .slider-container{
+        position: relative;
+        overflow-x:hidden;
+        height:200px;
+    }
+    .slider-width{
+        position: absolute;
+        display:flex;
+        align-items: start;
+        justify-content: start;
+        left: 0;
+        top: 0;}
+    .item{
+        background-color: blueviolet;
+    margin: 0 10px;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;}
+.btn{
+    background-color: coral;
+border:none;
+color#fff;
+font-size: 20px;padding:6px 12px;
+left:50%;
+cursor: pointer;
+position:absolute;
+transform: translate(-50%);
+}
+.btn:nth-child(2){
+    margin-left: -74px;
+}
+
+
+</style>
+
+</head>
+<body>
+  
+    <div class="slider-container" item-display-d="4" item-display-t="m">
+  <div  class="slider-width">
+        <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">5</div>
+  <div class="item">6</div>  
+  </div></div>
+  <button onclick="prev()"class="btn">prev</button>
+<button onclick="next()"class="btn">next</button>
+
+<script>
+var count=0
+var inc=0
+var margin=0
+var slider=document.getElementsByClassName("slider-width")[0];
+var itemDisplay=0;
+if(screen.width>999){
+    itemDisplay=document.getElementsByClassName("slider-container")[0].getAttribute("item-display-d");
+margin=itemDisplay*5
+}
+if(screen.width>700 && screen.width<990){
+    itemDisplay=document.getElementsByClassName("slider-container")[0].getAttribute("item-display-t");
+margin=itemDisplay*6.8
+}
+if(screen.width>280 && width<990){
+    itemDisplay = document.getElementsByClassName("slider-container")[0].getAttribute("item-display-m")
+margin=itemDisplay*20
+}
+console.log(itemDisplay)
+var item=document.getElementsByClassName("item");
+itemleft= item.length%itemDisplay
+itemSlide=Math.floor(item.length/itemDisplay)-1;
+for(let i=0;i<item.length){
+item[i].style.width=(screen.width/itemDisplay)+"px"
+}
+function next(){
+    if(inc!==itemSlide+itemleft){
+if(inc===itemSlide)
+inc=inc + itemleft;
+count=count-(screen.width/itemDisplay)*itemleft;
+    }
+    count=count-screen.width;
+    slider.style.left=count+"px"
+    
+}
+</script>
+
+</body>
+</html>

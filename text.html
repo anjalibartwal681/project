@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/cf5d9fed94.js" crossorigin="anonymous"></script>
+    <style>
+       button.fa-chevron-left{
+        position: absolute;
+  top:50%;
+       }  
+       button.fa-chevron-right{
+        position: absolute;
+  top:50%;
+       } 
+       
+       #x{
+        background-color: aqua;
+        height:150px;
+        width:150px;
+        margin:10px;
+        position: absolute;
+       }
+       .services{
+        position: relative;
+       }
+       #box2{
+        display:none;
+       }
+       
+    </style>
+</head>
+<body>
+    
+
+
+<div class="services">
+ <div  div id="box1" class="services-sec">
+    <div id="inerbox" style="display: flex;">
+    <div id="x"></div>
+    <div id="x"></div>
+    <div id="x"></div>
+    <div id="x"></div>
+ </div>
+ <div id="box2" class="services-sec">
+    <div id="inerbox1" style="display: flex;">
+    <div id="x"></div>
+    <div id="x"></div>
+    <div id="x"></div>
+    <div id="x"></div>
+ </div>
+ </div>
+
+
+ <button onClick="prev()">bt</button>
+ <button onclick="next()"><i class="fa-solid fa-chevron-right"></i></button></div>
+
+ <script>
+  function prev(){
+    var x= document.getElementById("box1");
+    var y=document.getElementById("box2")
+
+  
+      
+  if(y.style.display === "block")
+{
+    y.style.display="none";
+    x.style.display="block";
+    console.log(x)
+}
+    else{
+        x.style.display ="none";
+      y.style.display="block";
+}
+  }
+   
+  function next(){
+    var x= document.getElementById("box1")
+    var y = document.getElementById("box2")
+          
+  if(y.style.display === "none")
+{
+    y.style.display="block";
+    x.style.display="none";
+    console.log(x)
+}
+    else{
+        x.style.display ="none"
+      y.style.display="block"
+}
+  }
+  
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+</script>
+
+</body>
+</html>
